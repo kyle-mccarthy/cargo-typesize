@@ -115,7 +115,7 @@ impl rustc_driver::Callbacks for TypeSize {
             panic!("Already computed sizes");
         }
         // Analyze the program and inspect the types of definitions.
-        queries.global_ctxt().unwrap().take().enter(|tcx| {
+        queries.global_ctxt().unwrap().enter(|tcx| {
             for id in tcx.hir().items() {
                 let hir = tcx.hir();
                 let item = hir.item(id);
